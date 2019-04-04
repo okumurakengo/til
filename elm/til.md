@@ -50,3 +50,29 @@ False
 > over9000 100000
 "It's over 9000!!!"
 ```
+
+```elm
+> names = [ "Alice", "Bob", "Chuck" ]
+["Alice","Bob","Chuck"]
+
+> List.isEmpty names
+False
+
+> List.length names
+3
+
+> List.reverse names
+["Chuck","Bob","Alice"]
+
+> numbers = [1,4,3,2]
+[1,4,3,2]
+
+> List.sort numbers
+[1,2,3,4]
+
+> double n = n * 2
+<function>
+
+> List.map double numbers
+[2,8,6,4]
+```
