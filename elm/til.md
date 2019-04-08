@@ -76,3 +76,15 @@ False
 > List.map double numbers
 [2,8,6,4]
 ```
+
+```elm
+> import String
+> goodName name = \
+|   if String.length name <= 20 then \
+|   (True, "name accepted!") \
+|   else \
+|   (False, "name was too long; please limit it to 20 characters")
+<function> : String.String -> ( Bool, String.String )
+> goodName "Tom"
+(True,"name accepted!") : ( Bool, String.String )
+```
