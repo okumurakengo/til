@@ -88,3 +88,17 @@ False
 > goodName "Tom"
 (True,"name accepted!") : ( Bool, String.String )
 ```
+
+```elm
+> point = { x = 3, y = 4 }
+{ x = 3, y = 4 }
+
+> point.x
+3
+
+> bill = { name = "Gates", age = 62 }
+{ age = 62, name = "Gates" }
+
+> bill.name
+"Gates"
+```
