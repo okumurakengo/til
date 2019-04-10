@@ -2,3 +2,9 @@
 npm i -D @angular/cli
 ng new my-app
 ```
+
+```bash
+cd my-app
+ng serve --open
+# http://localhost:4200/
+```

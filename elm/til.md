@@ -102,3 +102,11 @@ False
 > bill.name
 "Gates"
 ```
+
+```elm
+> .name bill
+"Gates"
+
+> List.map .name [bill,bill,bill]
+["Gates","Gates","Gates"]
+```
