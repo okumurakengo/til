@@ -22,3 +22,8 @@ body {
     padding: 2px;
 }
 
+.command {
+    font-size: 12px;
+    cursor: pointer;
+    color: #08c;
+}

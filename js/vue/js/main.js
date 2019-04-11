@@ -12,9 +12,14 @@
             ]
         },
         methods: {
-            addItem: function() {
+            addItem() {
                 this.todos.push(this.newItem);
                 this.newItem = "";
+            },
+            deleteItem(index) {
+                if (confirm("are you sure?")) {
+                    this.todos.splice(index, 1);
+                }
             }
         }
     });

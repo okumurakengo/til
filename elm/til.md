@@ -110,3 +110,14 @@ False
 > List.map .name [bill,bill,bill]
 ["Gates","Gates","Gates"]
 ```
+
+```elm
+> under70 {age} = age < 70
+<function>
+
+> under70 bill
+True
+
+> under70 { species = "Triceratops", age = 68000000 }
+False
+```
