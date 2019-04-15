@@ -14,9 +14,19 @@
     <div id="root"></div>
     <script type="text/babel">
     {
+        function countUp(e, color) {
+            e.preventDefault();
+            alert(color);
+        }
 
         function Counter(props) {
-            return <li style={{backgroundColor:props.color}}>0</li>;
+            return (
+                <li style={{backgroundColor:props.color}}>
+                    <a href="#" onClick={e => countUp(e, props.color)}>
+                        0
+                    </a>
+                </li>
+            );
         }
 
         ReactDOM.render(

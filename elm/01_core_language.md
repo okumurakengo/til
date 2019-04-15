@@ -121,3 +121,11 @@ True
 > under70 { species = "Triceratops", age = 68000000 }
 False
 ```
+
+```elm
+> { bill | name = "Nye" }
+{ age = 62, name = "Nye" }
+
+> { bill | age = 22 }
+{ age = 22, name = "Gates" }
+```
