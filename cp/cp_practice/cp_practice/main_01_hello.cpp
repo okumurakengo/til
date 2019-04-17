@@ -10,6 +10,7 @@
 using namespace std;
 
 int main() {
-    cout << "私は" << 25 << "才です。" << endl;
+    // insert code here...
+    cout << "hello" << endl;
     return 0;
 }
