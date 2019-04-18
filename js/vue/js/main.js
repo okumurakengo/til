@@ -29,6 +29,14 @@
                 if (confirm("are you sure?")) {
                     this.todos.splice(index, 1);
                 }
+            },
+        },
+        computed: {
+            remaining() {
+                const items = this.todos.filter(todo => {
+                    return !todo.isDone;
+                });
+                return items.length;
             }
         }
     });

@@ -14,18 +14,32 @@
 //x =  String(5)
 //print(x)
 
-print(10 / 3)
-print(10.0 / 3)
-print(10 % 3)
+//print(10 / 3)
+//print(10.0 / 3)
+//print(10 % 3)
+//
+//var y = 10
+//y += 5
+//print(y)
+//
+//print("hello " + "world")
+//print("y is \(y)")
+//print("y2 is \(y * 2)")
+//
+//print(true && false)
+//print(true || false)
+//print(!true)
 
-var y = 10
-y += 5
-print(y)
+let score = 82
+let result: String
 
-print("hello " + "world")
-print("y is \(y)")
-print("y2 is \(y * 2)")
+if score > 80 {
+    result = "great"
+} else if score > 60 {
+    result = "good"
+} else {
+    result = "so so ..."
+}
+print(result)
 
-print(true && false)
-print(true || false)
-print(!true)
+print(score > 80 ? "great" : "so so ...")

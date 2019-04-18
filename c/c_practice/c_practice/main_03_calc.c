@@ -9,13 +9,10 @@
 #include <stdio.h>
 
 int main(void) {
-    int score = 55;
-    if (score >= 60) {
-        printf("OK\n");
-    } else if (score >= 50) {
-        printf("so so ...\n");
-    } else {
-        printf("NG\n");
-    }
+    int x;
+    x = 10 % 3;
+    x += 3;
+    x++;
+    printf("%d\n", x);
     return 0;
 }
