@@ -30,13 +30,21 @@
                     this.todos.splice(index, 1);
                 }
             },
+            purge() {
+                if (!confirm("delete finished?")) {
+                    return;
+                }
+                this.todos = this.todos.filter(todo => {
+                    return !todo.isDone;
+                });
+                this.todos = this.remaining;
+            },
         },
         computed: {
             remaining() {
-                const items = this.todos.filter(todo => {
+                return this.todos.filter(todo => {
                     return !todo.isDone;
                 });
-                return items.length;
             }
         }
     });

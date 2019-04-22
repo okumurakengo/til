@@ -30,16 +30,34 @@
 //print(true || false)
 //print(!true)
 
-let score = 82
-let result: String
+//let score = 82
+//let result: String
+//
+//if score > 80 {
+//    result = "great"
+//} else if score > 60 {
+//    result = "good"
+//} else {
+//    result = "so so ..."
+//}
+//print(result)
+//
+//print(score > 80 ? "great" : "so so ...")
 
-if score > 80 {
-    result = "great"
-} else if score > 60 {
-    result = "good"
-} else {
-    result = "so so ..."
+let num = 10
+
+switch num {
+case 0:
+    print("zero")
+case 1, 2, 3:
+    print("small")
+case 4...6:
+    print("4/5/6")
+case 7..<9:
+    print("7/8")
+case let n where n > 20:
+    print("\(n) is huge!")
+default:
+//    print("n.a.")
+    break
 }
-print(result)
-
-print(score > 80 ? "great" : "so so ...")

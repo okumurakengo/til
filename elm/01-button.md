@@ -16,3 +16,13 @@ update msg model =
     Decrement ->
       model - 1
 ```
+
+```elm
+view : Model -> Html Msg
+view model =
+  div []
+    [ button [ onClick Decrement ] [ text "-" ]
+    , div [] [ text (String.fromInt model) ]
+    , button [ onClick Increment ] [ text "+" ]
+    ]
+```
