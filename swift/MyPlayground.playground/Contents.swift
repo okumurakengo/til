@@ -44,20 +44,33 @@
 //
 //print(score > 80 ? "great" : "so so ...")
 
-let num = 10
+//let num = 10
+//
+//switch num {
+//case 0:
+//    print("zero")
+//case 1, 2, 3:
+//    print("small")
+//case 4...6:
+//    print("4/5/6")
+//case 7..<9:
+//    print("7/8")
+//case let n where n > 20:
+//    print("\(n) is huge!")
+//default:
+////    print("n.a.")
+//    break
+//}
 
-switch num {
-case 0:
-    print("zero")
-case 1, 2, 3:
-    print("small")
-case 4...6:
-    print("4/5/6")
-case 7..<9:
-    print("7/8")
-case let n where n > 20:
-    print("\(n) is huge!")
-default:
-//    print("n.a.")
-    break
+var n = 0
+
+while n < 3 {
+    print(n)
+    n += 1
 }
+
+n = 20
+repeat {
+    print(n)
+    n += 1
+} while n < 3

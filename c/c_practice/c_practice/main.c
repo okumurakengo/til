@@ -9,22 +9,18 @@
 #include <stdio.h>
 
 int main(void) {
-    int rank = 20;
+    int m = 0;
     
-    switch (rank) {
-        case 1:
-            printf("Gold!\n");
-            break;
-        case 2:
-            printf("Silver!\n");
-            break;
-        case 3:
-            printf("Bronze!\n");
-            break;
-        default:
-            printf("no medal...\n");
-            break;
+    while (m < 10) {
+        printf("m: %d\n", m);
+        m++;
     }
+    
+    m = 20;
+    do {
+        printf("m: %d\n", m);
+        m++;
+    } while (m < 10);
     
     return 0;
 }

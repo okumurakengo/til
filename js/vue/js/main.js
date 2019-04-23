@@ -16,6 +16,19 @@
                 isDone: true,
             }]
         },
+        watch: {
+            // todos() {
+            //     localStorage.setItem("todos", JSON.stringify(this.todos));
+            //     alert("Data saved!");
+            // },
+            todos: {
+                handler() {
+                    localStorage.setItem("todos", JSON.stringify(this.todos));
+                    // alert("Data saved!");
+                },
+                deep: true,
+            },
+        },
         methods: {
             addItem() {
                 const item = {
@@ -34,9 +47,6 @@
                 if (!confirm("delete finished?")) {
                     return;
                 }
-                this.todos = this.todos.filter(todo => {
-                    return !todo.isDone;
-                });
                 this.todos = this.remaining;
             },
         },
