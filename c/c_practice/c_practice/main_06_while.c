@@ -9,17 +9,18 @@
 #include <stdio.h>
 
 int main(void) {
-    int m;
+    int m = 0;
     
-    for (m = 0; m < 10; m++) {
-        if (m == 2) {
-            continue;
-        }
-        if (m == 7) {
-            break;
-        }
+    while (m < 10) {
         printf("m: %d\n", m);
+        m++;
     }
+    
+    m = 20;
+    do {
+        printf("m: %d\n", m);
+        m++;
+    } while (m < 10);
     
     return 0;
 }

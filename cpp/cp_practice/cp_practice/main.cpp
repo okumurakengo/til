@@ -10,20 +10,20 @@
 #include <string>
 using namespace std;
 
-int main() {
-    string name;
-    int tosi;
-    
-    cout << "こんにちは。私はコンピュータです。" <<endl;
-    cout << "あなたの名前を入力してください。" <<endl;
-    cin >> name;
-    cout<<name<<"さん。よろしく。"<<endl;
-    
-    cout << "ところで、" << name << "さん。失礼ですがお年はいくつですか？" << endl;
-    cout << "(入力はかならず、半角の数字でお願いします。)" << endl;
-    cin >> tosi;      //年齢（整数）の入力
-    
-    cout << "なるほど。" << tosi << "歳ですか。" << endl;
-    cout << "私はもうすぐ2歳のマシンです。"<<endl;
+class Neko
+{
+    private:
+        string name;
+    public:
+        Neko(string s){
+            name = s;
+        }
+        void naku(){
+            cout<<"にゃあ。俺様は"<<name<<"だ。"<<endl;
+        }
+};
+
+int main() {    
+    cout << "tmp" <<endl;
     return 0;
 }

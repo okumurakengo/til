@@ -62,15 +62,25 @@
 //    break
 //}
 
-var n = 0
+//var n = 0
+//
+//while n < 3 {
+//    print(n)
+//    n += 1
+//}
+//
+//n = 20
+//repeat {
+//    print(n)
+//    n += 1
+//} while n < 3
 
-while n < 3 {
-    print(n)
-    n += 1
+for i in 0...10 {
+    if i == 3 {
+        continue
+    }
+    if i == 7 {
+        break
+    }
+    print(i)
 }
-
-n = 20
-repeat {
-    print(n)
-    n += 1
-} while n < 3

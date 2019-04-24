@@ -24,5 +24,25 @@ export class HeroesComponent implements OnInit {
 
 
 1. selector— コンポーネントのCSS要素セレクター
-1.templateUrl— コンポーネントのテンプレートファイルの場所
-1.styleUrls— コンポーネントのプライベートCSSスタイルの場所
+1. templateUrl— コンポーネントのテンプレートファイルの場所
+1. styleUrls— コンポーネントのプライベートCSSスタイルの場所
+
+heroes.component.ts (hero プロパティ)
+
+
+```ts
+export class HeroesComponent implements OnInit {
+  hero = 'Windstorm';
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
+```
+
+heroes.component.html
+
+```html
+{{hero}}
+```
