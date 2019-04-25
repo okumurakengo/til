@@ -8,18 +8,17 @@
 
 #include <stdio.h>
 
-int main(void) {
-    int m;
-    
-    for (m = 0; m < 10; m++) {
-        if (m == 2) {
-            continue;
-        }
-        if (m == 7) {
-            break;
-        }
-        printf("m: %d\n", m);
+float getMax(float a, float b) {
+    if (a >= b) {
+        return a;
+    } else {
+        return b;
     }
-    
+}
+
+int main(void) {
+    float result;
+    result = getMax(2.3, 5.2);
+    printf("%f\n", result);
     return 0;
 }

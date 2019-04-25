@@ -75,12 +75,25 @@
 //    n += 1
 //} while n < 3
 
-for i in 0...10 {
-    if i == 3 {
-        continue
-    }
-    if i == 7 {
-        break
-    }
-    print(i)
+//for i in 0...10 {
+//    if i == 3 {
+//        continue
+//    }
+//    if i == 7 {
+//        break
+//    }
+//    print(i)
+//}
+
+//let s: Optional<String> = nil
+let s: String? = nil
+
+if s != nil {
+    print(s!) //unwrap
 }
+
+if let value = s {
+    print(value)
+}
+
+print(s ?? "this is nil!")

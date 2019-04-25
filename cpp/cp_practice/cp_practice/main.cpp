@@ -24,6 +24,10 @@ class Neko
 };
 
 int main() {    
-    cout << "tmp" <<endl;
+    Neko dora("ボス");  //「ボス」というの名前を持ったdoraが生成される
+    cout<<"あなたの名づけた猫がメモリ上に生成されました。"<<endl;
+    cout<<"猫が鳴きます。"<<endl;
+    
+    dora.naku();
     return 0;
 }

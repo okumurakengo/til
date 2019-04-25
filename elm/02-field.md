@@ -5,3 +5,8 @@ type alias Model =
   { content : String
   }
 ```
+
+```elm
+type Msg
+  = Change String
+```
