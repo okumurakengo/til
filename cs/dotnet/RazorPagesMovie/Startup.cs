@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using RazorPagesMovie.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace RazorPagesMovie
 {
@@ -29,6 +31,8 @@ namespace RazorPagesMovie
                 options.CheckConsentNeeded = context => true;
             });
 
+        services.AddDbContext<RazorPagesMovieContext>(options =>
+            options.UseSqlite(Configuration.GetConnectionString("MovieContext")));
 
             services.AddRazorPages();
         }
