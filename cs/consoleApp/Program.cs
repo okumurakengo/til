@@ -30,21 +30,22 @@ namespace TeleprompterConsole
             }
         }
 
-        static void Main(string[] args)
+        private static async Task ShowTeleprompter()
         {
-            var lines = ReadFrom("sampleQuotes.txt");
-            foreach (var line in lines)
+            var words = ReadFrom("sampleQuotes.txt");
+            foreach (var word in words)
             {
-                Console.WriteLine(line);
-                if (!string.IsNullOrWhiteSpace(line))
+                Console.Write(word);
+                if (!string.IsNullOrWhiteSpace(word))
                 {
-                    var pause = Task.Delay(200);
-                    // Synchronously waiting on a task is an
-                    // anti-pattern. This will get fixed in later
-                    // steps.
-                    pause.Wait();
+                    await Task.Delay(200);
                 }
             }
+        }
+
+        static void Main(string[] args)
+        {
+            ShowTeleprompter().Wait();
         }
     }
 }
