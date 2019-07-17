@@ -7,6 +7,50 @@ namespace TeleprompterConsole
 {
     class Program
     {
+        public static void Main(string[] args)
+        {
+            RunTeleprompter().Wait();
+        }
+
+        private static async Task RunTeleprompter()
+        {
+            var config = new TelePrompterConfig();
+            var displayTask = ShowTeleprompter(config);
+
+            var speedTask = GetInput(config);
+            await Task.WhenAny(displayTask, speedTask);
+        }
+
+        private static async Task ShowTeleprompter(TelePrompterConfig config)
+        {
+            var words = ReadFrom("SampleQuotes.txt");
+            foreach (var word in words)
+            {
+                Console.Write(word);
+                if (!string.IsNullOrWhiteSpace(word))
+                {
+                    await Task.Delay(config.DelayInMilliseconds);
+                }
+            }
+            config.SetDone();
+        }
+
+        private static async Task GetInput(TelePrompterConfig config)
+        {
+            Action work = () =>
+            {
+                do {
+                    var key = Console.ReadKey(true);
+                    if (key.KeyChar == '>')
+                        config.UpdateDelay(-10);
+                    else if (key.KeyChar == '<')
+                        config.UpdateDelay(10);
+                    else if (key.KeyChar == 'X' || key.KeyChar == 'x')
+                        config.SetDone();
+                } while (!config.Done);
+            };
+            await Task.Run(work);
+        }
         static IEnumerable<string> ReadFrom(string file)
         {
             string line;
@@ -20,32 +64,15 @@ namespace TeleprompterConsole
                     {
                         yield return word + " ";
                         lineLength += word.Length + 1;
-                        if (lineLength > 700)
+                        if (lineLength > 70)
                         {
                             yield return Environment.NewLine;
                             lineLength = 0;
                         }
                     }
+                    yield return Environment.NewLine;                
                 }
             }
-        }
-
-        private static async Task ShowTeleprompter()
-        {
-            var words = ReadFrom("sampleQuotes.txt");
-            foreach (var word in words)
-            {
-                Console.Write(word);
-                if (!string.IsNullOrWhiteSpace(word))
-                {
-                    await Task.Delay(200);
-                }
-            }
-        }
-
-        static void Main(string[] args)
-        {
-            ShowTeleprompter().Wait();
         }
     }
 }
