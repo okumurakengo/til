@@ -8,7 +8,7 @@ function getSomeValue() {
 // }
 
 enum E {
-    B, // Error! Enum member must have initializer.
+    B,
     A = getSomeValue(),
 }
 
