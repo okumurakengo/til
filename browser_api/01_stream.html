@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<title>Document</title>
+
+<div id="targetDiv"></div>
+
+<script>
+process();
+
+async function process() {
+    // Retrieve NDJSON from the server
+    const response = await fetch('./request.ndjson');
+    const results = response.body
+        // From bytes to text:
+        .pipeThrough(new TextDecoderStream())
+        // Buffer until newlines:
+        .pipeThrough(new class extends TransformStream {
+            constructor() {
+                super({ transform: (chunk, controller) => {
+                    for (const v of chunk.split('\n')) {
+                        controller.enqueue(v)
+                    }
+                }})
+            }
+        })
+        // Parse chunks as JSON:
+        .pipeThrough(new class extends TransformStream {
+            constructor() {
+                super({ transform: (chunk, controller) => {
+                    controller.enqueue(JSON.parse(chunk))
+                }})
+            }
+        });
+
+        // Loop through the results and write to the DOM
+        writeToDOM(results.getReader());
+}
+
+function writeToDOM(reader) {
+    reader.read().then(
+        ({ value, done }) => {
+            if (done) {
+                console.log("The stream was already closed!");
+
+            } else {
+                // Build up the values
+                let result = document.createElement('div');
+                result.innerHTML = `<div>ID: ${value.id} - Phone: ${value.phone} - Result: ${value.result}</div><br>`;
+
+                // Prepend to the target
+                targetDiv.insertBefore(result, targetDiv.firstChild);
+
+                // Recursively call
+                writeToDOM(reader);
+            }
+        },
+        e => console.error("The stream became errored and cannot be read from!", e)
+    );
+}
+</script>
+</body>
+</html>
